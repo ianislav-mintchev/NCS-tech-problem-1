@@ -4,8 +4,7 @@ class Device
     {
       this.deviceCoordinates = _deviceCoordinates;
     }
-  
-  
+    
     findBestLinkStation(linkStationData) 
     { 
       let linkStationReach = 0;
@@ -22,18 +21,18 @@ class Device
         {
           let linkStationX = linkStationData[i][0];
           let linkStationY = linkStationData[i][1];
-          this.linkStationReach = linkStationData[i][2];
+          linkStationReach = linkStationData[i][2];
     
-          this.deviceDistance = this.getDistance(deviceCoordinatesX, deviceCoordinatesY, linkStationX, linkStationY);
+          deviceDistance = this.getDistance(deviceCoordinatesX, deviceCoordinatesY, linkStationX, linkStationY);
     
-          if (this.deviceDistance <= this.linkStationReach) 
+          if (deviceDistance <= linkStationReach) 
           {       
-              this.linkStationPower = Math.pow((this.linkStationReach - this.deviceDistance),2);
+              linkStationPower = Math.pow((linkStationReach - deviceDistance),2);
     
-              if(linkStationPowerMax < this.linkStationPower)
+              if(linkStationPowerMax < linkStationPower)
               {
-                  this.bestPowerPosition = i;
-                  linkStationPowerMax = this.linkStationPower;
+                  bestPowerPosition = i;
+                  linkStationPowerMax = linkStationPower;
               }
           }     
         }
@@ -44,7 +43,7 @@ class Device
         }
         else
         {
-            console.log("Best link station for point " +  deviceCoordinatesX +","+ deviceCoordinatesY + " is " + linkStationData[this.bestPowerPosition][0]+ ","+linkStationData[this.bestPowerPosition][1] + " with power " + linkStationPowerMax);
+            console.log("Best link station for point " +  deviceCoordinatesX +","+ deviceCoordinatesY + " is " + linkStationData[bestPowerPosition][0]+ ","+linkStationData[bestPowerPosition][1] + " with power " + linkStationPowerMax);
         }  
       }
     }
