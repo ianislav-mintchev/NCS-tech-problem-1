@@ -1,10 +1,5 @@
 class Device 
 {
-    linkStationReach = 0;
-    linkStationPower = 0;
-    deviceDistance = -1;
-    bestPowerPosition = 0;
-    
     constructor(_deviceCoordinates ) 
     {
       this.deviceCoordinates = _deviceCoordinates;
@@ -13,6 +8,11 @@ class Device
   
     findBestLinkStation(linkStationData) 
     { 
+      let linkStationReach = 0;
+      let linkStationPower = 0;
+      let deviceDistance = -1;
+      let bestPowerPosition = 0;
+
       for (let i = 0; i < deviceCoordinates.length; i++) 
       {
         let deviceCoordinatesX = deviceCoordinates[i][0];
